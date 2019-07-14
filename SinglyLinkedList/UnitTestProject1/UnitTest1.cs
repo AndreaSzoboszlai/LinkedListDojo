@@ -7,15 +7,27 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
+        SingleLinkedList sL;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            sL = new SingleLinkedList();
+            sL.head = new Node(7);
+            sL.head.next = new Node(5);
+            sL.head.next.next = new Node(1);
+            sL.head.next.next.next = new Node(9);
+        }
+
+        [TestCleanup]
+        public void TearDown()
+        {
+
+        }
+
         [TestMethod]
         public void TestHead()
         {
-            SingleLinkedList sL = new SingleLinkedList();
-            sL.addToEnd(7);
-            sL.addToEnd(5);
-            sL.addToEnd(1);
-            sL.addToEnd(9);
-
             int head = sL.head.Data;
             Assert.AreEqual(7, head, "List head is not correct");
 
@@ -24,12 +36,6 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestTail()
         {
-            SingleLinkedList sL = new SingleLinkedList();
-            sL.addToEnd(7);
-            sL.addToEnd(5);
-            sL.addToEnd(1);
-            sL.addToEnd(9);
-
             Node tail = sL.head;
             while (tail.next != null)
             {
@@ -41,12 +47,6 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestLength()
         {
-            SingleLinkedList sL = new SingleLinkedList();
-            sL.addToEnd(7);
-            sL.addToEnd(5);
-            sL.addToEnd(1);
-            sL.addToEnd(9);
-
             Node tail = sL.head;
             int count = 1;
             while (tail.next != null)
@@ -59,7 +59,6 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAdd()
         {
-            SingleLinkedList sL = new SingleLinkedList();
             sL.addToEnd(7);
 
 
@@ -70,16 +69,12 @@ namespace UnitTestProject1
                 tail = tail.next;
                 count++;
             }
-            Assert.AreEqual(1, count, "List add is not correct");
+            Assert.AreEqual(5, count, "List add is not correct");
         }
+
         [TestMethod]
         public void TestRemove()
         {
-            SingleLinkedList sL = new SingleLinkedList();
-            sL.addToEnd(7);
-            sL.addToEnd(5);
-            sL.addToEnd(1);
-            sL.addToEnd(9);
             sL.deleteNodeByKey(1);
 
             Node tail = sL.head;
