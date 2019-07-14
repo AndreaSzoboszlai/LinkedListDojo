@@ -10,11 +10,11 @@ namespace DoublyLinkedListDojo
     {
         public Node next { get; set; }
         public Node previous { get; set; }
-        public int Data { get; set; }
+        public int data { get; set; }
 
         public Node(int d)
         {
-            Data = d;
+            data = d;
             next = null;
             previous = null;
         }
@@ -22,7 +22,7 @@ namespace DoublyLinkedListDojo
 
         public void Print()
         {
-            Console.Write(" --> " + Data);
+            Console.Write(" --> " + data);
             if (next != null)
             {
                 next.Print();
@@ -31,7 +31,7 @@ namespace DoublyLinkedListDojo
 
         public override string ToString()
         {
-            return Data.ToString();
+            return data.ToString();
         }
     }
 }

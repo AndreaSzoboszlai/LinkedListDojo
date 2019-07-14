@@ -47,5 +47,33 @@ namespace DoublyLinkedListDojo
             }
             return temp;
         }
+
+        public void DeleteNodebyKey(int key)
+        {
+            Node temp = head;
+            if (temp != null && temp.data == key)
+            {
+                head = temp.next;
+                head.previous = null;
+                return;
+            }
+            while (temp != null && temp.data != key)
+            {
+                temp = temp.next;
+            }
+            if (temp == null)
+            {
+                return;
+            }
+            if (temp.next != null)
+            {
+                temp.next.previous = temp.previous;
+            }
+            if (temp.previous != null)
+            {
+                temp.previous.next = temp.next;
+            }
+        }
     }
+
 }

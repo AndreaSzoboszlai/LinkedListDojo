@@ -16,6 +16,9 @@ namespace DoublyLinkedListDojo
             dL.addToEnd(9);
             dL.Print();
             Console.ReadLine();
+            dL.DeleteNodebyKey(1);
+            dL.Print();
+            Console.ReadLine();
         }
     }
 }
