@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SinglyLinkedList
 {
-    class SingleLinkedList
+    public class SingleLinkedList
     {
-        private Node head;
+        public Node head { get; set; }
 
         public SingleLinkedList()
         {
